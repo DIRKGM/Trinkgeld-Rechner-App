@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
         
+    // Variablen & Constanten
     
     @IBOutlet weak var betragTextField: UITextField!
     @IBOutlet weak var personenAnzahlTextField: UITextField!
@@ -23,4 +24,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    //Function here
+    
+    @IBAction func prozentButtonAction(_ sender: UIButton) {
+        
+        if sender.titleLabel?.text == "3%"{
+            prozentLabel.text = "3%"
+        }
+        
+        if sender.titleLabel?.text == "5%"{
+            prozentLabel.text = "5%"
+        }
+        
+        if sender.titleLabel?.text == "7%"{
+            prozentLabel.text = "7%"
+        }
+        
+    }
+    
+
+    
 }
