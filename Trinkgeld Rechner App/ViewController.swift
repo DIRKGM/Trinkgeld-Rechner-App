@@ -71,8 +71,7 @@ class ViewController: UIViewController {
         
         if (betragTextField.text!.isEmpty) || personenAnzahlTextField.text!.isEmpty {
             erstelleAnzeige(message: "Bitte Textfelder ausfüllen!")
-        }
-        else {
+        } else {
             essenKosten = Double(betragTextField.text!)!
             trinkgeldProzent = Double(prozentSlider.value)
             trinkgeldKosten = (essenKosten * trinkgeldProzent) / 100
@@ -81,7 +80,7 @@ class ViewController: UIViewController {
             
             printUiElements()
         }
-        }
+    }
     
     // Ausgabe des Trinkgeld - Umwandlung wieder in String
     func printUiElements() {
