@@ -33,6 +33,11 @@ class ViewController: UIViewController {
         
     }
     
+    //Tastatur wieder einfahren lassen, durch drücken auf den Bildschirm
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     //Function here
     @IBAction func prozentButtonAction(_ sender: UIButton) {
         
