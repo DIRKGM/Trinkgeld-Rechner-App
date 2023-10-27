@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-        
+    
     // Variablen & Constanten
     
     
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
     }
     
     //Function here
@@ -56,7 +56,6 @@ class ViewController: UIViewController {
             ausrechnenDerKosten()
             return
         }
-        
     }
     
     // Slider schreibt ins Label drüber %0f --> bedeutet keine Nachkommastalle
@@ -67,16 +66,22 @@ class ViewController: UIViewController {
         
         ausrechnenDerKosten()
     }
-        
+    
     func ausrechnenDerKosten() {
-        essenKosten = Double(betragTextField.text!)!
-        trinkgeldProzent = Double(prozentSlider.value)
-        trinkgeldKosten = (essenKosten * trinkgeldProzent) / 100
-        gesamtKosten = essenKosten + trinkgeldKosten
-        kostenProPerson = gesamtKosten / Double(personenAnzahlTextField.text!)!
         
-        printUiElements()
-    }
+        if (betragTextField.text!.isEmpty) || personenAnzahlTextField.text!.isEmpty {
+            erstelleAnzeige(message: "Bitte Textfelder ausfüllen!")
+        }
+        else {
+            essenKosten = Double(betragTextField.text!)!
+            trinkgeldProzent = Double(prozentSlider.value)
+            trinkgeldKosten = (essenKosten * trinkgeldProzent) / 100
+            gesamtKosten = essenKosten + trinkgeldKosten
+            kostenProPerson = gesamtKosten / Double(personenAnzahlTextField.text!)!
+            
+            printUiElements()
+        }
+        }
     
     // Ausgabe des Trinkgeld - Umwandlung wieder in String
     func printUiElements() {
@@ -89,4 +94,10 @@ class ViewController: UIViewController {
         KostenProPersonLabel.text = "Kosten Pro Person: " + kostenProPerson + " €"
     }
     
+    func erstelleAnzeige (message: String) {
+        let alert = UIAlertController(title: "Fehler / Error", message: message, preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Okay", style: .default) { (action) in  }
+        alert.addAction(action1)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
